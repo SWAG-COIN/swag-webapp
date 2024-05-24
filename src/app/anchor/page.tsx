@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { callHelloProgram, callHelloAnchorProgram } from "../../anchorClient";
+import { callHelloProgram, callHelloAnchorProgram } from "../../lib/anchorClient";
 
 import {
   useConnection,
   useWallet,
   useAnchorWallet,
 } from "@solana/wallet-adapter-react";
-import Popup from "../../Popup";
+import Popup from "../../components/Popup";
 
 const AnchorPage: React.FC = () => {
   const { publicKey, connected } = useWallet();

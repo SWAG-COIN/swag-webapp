@@ -7,7 +7,7 @@ import {
   Transaction,
   LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
-import Popup from "../../Popup";
+import Popup from "../../components/Popup";
 
 const TransferPage: React.FC = () => {
   const { connection } = useConnection();
