@@ -1,11 +1,18 @@
 "use client";
+import Hero from "@/components/Hero";
+import Question from "@/components/Question";
+import SocialBanner from "@/components/SocialBanner";
+import Tutorial from "@/components/Tutorial";
 import React from "react";
 
 
 const HomePage: React.FC = () => {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-white">
-      hello
+    <main>
+      <Hero />
+      <Tutorial />
+      <Question />
+      <SocialBanner />
     </main>
   );
 }

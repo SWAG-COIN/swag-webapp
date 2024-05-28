@@ -19,17 +19,27 @@
 body {
   font-family: 'Helvetica Neue LT Std', sans-serif;
   padding: 0px;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0px;
+  color: black;
+  background: white;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+.stroke-text{
+  text-anchor:middle;
+  stroke: #000;
+  color: #F5F5F5;
+  stroke-width:3px;
+  text-anchor:middle;
+  fill: white;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* -webkit-text-stroke-width: 3;
+  -webkit-text-stroke-color: #000; */
+}
+
 }

@@ -8,8 +8,8 @@ import {
   Keypair,
   Connection,
 } from "@solana/web3.js";
-import IDL from "../idl.json";
-import IDL_anchor from "../idl_2.json"; // IDLファイルをsrcディレクトリに配置
+import IDL from "./idl.json";
+import IDL_anchor from "./idl_2.json";
 import { Program } from "@coral-xyz/anchor";
 import { AnchorWallet } from "@solana/wallet-adapter-react";
 
