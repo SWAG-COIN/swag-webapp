@@ -44,8 +44,8 @@ const FAQBanner = ({ className = "" }: { className?: string }) => (
       </text>
       <text
         className="stroke-text text-[2.5rem] md:text-[4rem] !stroke-2 font-thin leading-9 tracking-[5.28px]"
-        x="50%"
-        y="50%"
+        x="50.5%"
+        y="49.5%"
       >
         QUESTIONS ?
       </text>

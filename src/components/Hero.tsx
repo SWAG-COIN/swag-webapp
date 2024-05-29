@@ -133,7 +133,7 @@ const Hero = () => {
           />
         </div>
       </div>
-      <img src="/moving-clouds-in-sky.png" alt="moving-clouds-in-sky" className="absolute top-5 h-full w-auto scale-125 object-fill object-left-top z-0" />
+      <img src="/moving-clouds-in-sky.png" alt="moving-clouds-in-sky" className="absolute top-5 md:h-full w-auto scale-125 object-fill object-left-top z-0" />
     </section>
   );
 };

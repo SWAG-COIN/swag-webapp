@@ -5,7 +5,7 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const Header = () => {
   return (
-    <header className="py-4 px-11 bg-[#121212] sticky top-0 z-20">
+    <header className="py-4 px-11 bg-[#121212] sticky -top-1 z-20">
       <WebMenu />
       <MobileMenu />
     </header>
@@ -51,7 +51,7 @@ const MobileMenu = () => {
       {sidebarOpen ? (
         <button
           onClick={() => setSidebarOpen(false)}
-          className="text-white focus:outline-none"
+          className="text-white focus:outline-none z-30"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,19 +94,19 @@ const MobileMenu = () => {
         id="sidebar"
         className={`fixed z-20 inset-y-0 left-0 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out bg-[#121212] text-white font-semibold text-lg w-3/4 p-5 space-y-16`}
+        } transition-transform duration-300 ease-in-out bg-[#121212] text-white font-semibold text-lg w-screen p-5 space-y-16`}
       >
-        <Link href="/" className="flex items-center gap-5">
+        <Link onClick={() => setSidebarOpen(false)} href="/" className="flex items-center gap-5">
           <Image src="/logo.png" alt="logo" width={48} height={48} />
           <span className="text-white font-semibold text-lg tracking-[.25rem]">
             SWAG
           </span>
         </Link>
         <nav className="space-y-8 flex flex-col justify-center items-center text-white font-semibold text-lg tracking-[.25rem]">
-          <Link href="/">HOME</Link>
-          <Link href="/dashboard">DASHBOARD</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/dm">DM</Link>
+          <Link onClick={() => setSidebarOpen(false)} href="/">HOME</Link>
+          <Link onClick={() => setSidebarOpen(false)} href="/dashboard">DASHBOARD</Link>
+          <Link onClick={() => setSidebarOpen(false)} href="/faq">FAQ</Link>
+          <Link onClick={() => setSidebarOpen(false)} href="/dm">DM</Link>
           <WalletMultiButton
             style={{
               background: "#fff",
