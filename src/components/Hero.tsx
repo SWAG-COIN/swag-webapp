@@ -89,51 +89,65 @@ const Hero = () => {
           />
         </div>
         <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-6">
-          <GiveawayCard
-            title="WEEKLY GIVEAWAY"
-            prize="LAMBO"
-            content={
-              <>
-                <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
-                  Current round ends in
-                </span>
-                <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
-                  06 : 23 : 56 : 12
+          <GiveawayCard title="WEEKLY GIVEAWAY">
+            <p className="text-base font-light tracking-[3.84px]">
+              Enter for a chance to win:
+            </p>
+            <b className="text-xl leading-[2rem] font-semibold tracking-[4.8px]">
+              TESLA CYBERTRUCK
+            </b>
+            <div className="bg-black w-full text-white text-center font-bold py-4">
+              <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
+                Current round ends in
+              </span>
+              <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
+                06 : 23 : 56 : 12
+              </p>
+              <span className="flex justify-center gap-10">
+                <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
+                  Days
                 </p>
-                <span className="flex justify-center gap-10">
-                  <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
-                    Days
-                  </p>
-                  <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
-                    Hours
-                  </p>
-                  <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
-                    Mins
-                  </p>
-                  <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
-                    Secs
-                  </p>
-                </span>
-              </>
-            }
-          />
-          <GiveawayCard
-            title="SWAG GIVEAWAY"
-            prize="TESLA CYBERTRUCK"
-            content={
-              <>
-                <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
-                  Entries remaining until draw:
-                </span>
-                <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
-                  100,456
+                <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
+                  Hours
                 </p>
-              </>
-            }
-          />
+                <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
+                  Mins
+                </p>
+                <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
+                  Secs
+                </p>
+              </span>
+            </div>
+            <button className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
+              BUY WITH DEX
+            </button>
+          </GiveawayCard>
+          <GiveawayCard title="SWAG GIVEAWAY">
+            <p className="text-base font-light tracking-[3.84px]">
+              Enter for a chance to win:
+            </p>
+            <b className="text-xl leading-[2rem] font-semibold tracking-[4.8px]">
+              TESLA CYBERTRUCK
+            </b>
+            <div className="bg-black w-full text-white text-center font-bold py-4">
+              <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
+                Entries remaining until draw:
+              </span>
+              <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
+                100,456
+              </p>
+            </div>
+            <button className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
+              BUY WITH DEX
+            </button>
+          </GiveawayCard>
         </div>
       </div>
-      <img src="/moving-clouds-in-sky.png" alt="moving-clouds-in-sky" className="absolute top-5 md:h-full w-auto scale-125 object-fill object-left-top z-0" />
+      <img
+        src="/moving-clouds-in-sky.png"
+        alt="moving-clouds-in-sky"
+        className="absolute top-5 md:h-full w-auto scale-125 object-fill object-left-top z-0"
+      />
     </section>
   );
 };

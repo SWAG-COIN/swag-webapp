@@ -1,6 +1,7 @@
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
+
 const Question = () => {
   return (
     <section className="pt-[7.375rem] md:pb-[7.375rem]">
@@ -53,8 +54,8 @@ const FAQBanner = ({ className = "" }: { className?: string }) => (
     <p className="text-xl md:text-2xl mx-[2.625rem] leading-8 md:leading-[2.375rem] font-light tracking-[2.4px] md:tracking-[2.88px]">
       Visit our FAQ page for frequently asked questions.
     </p>
-    <button className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
+    <Link href="/faq" className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
       FAQ PAGE
-    </button>
+    </Link>
   </div>
 );

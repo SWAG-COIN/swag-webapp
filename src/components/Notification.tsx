@@ -1,8 +1,9 @@
 import React from "react";
+import NotificationBox from "./NotificationBox";
 
 const Notification = () => {
   return (
-    <section className="flex flex-col gap-6 md:gap-12 mt-[3.25rem] mb-6 justify-center items-start">
+    <section className="md:mx-[5rem] flex flex-col gap-6 md:gap-12 mt-[3.25rem] mb-6 justify-center items-start">
       <svg className="w-full md:w-fit h-[4.25rem] md:h-[10rem]">
         <text
           className="stroke-text text-[3rem] md:text-[6.25rem] !stroke-2 font-medium leading-[4.75rem] tracking-[0.75rem] md:leading-[6.25rem] md:tracking-[1.5rem]"
@@ -24,44 +25,25 @@ const Notification = () => {
         transaction and NFT timestamps, and other important updates.
       </span>
       <div className="self-center max-w-4xl w-[85dvw] md:w-[60dvw] mx-6 border-2 border-black rounded-[2.5rem] px-[1.125rem] py-[2.625rem] ">
-        {/* <div className="md:border md:border-black md:p-4"> */}
+          <div className="md:border border-black md:p-4">
           <div className=" text-left flex flex-col gap-9 h-[13rem] scrollbar overflow-y-scroll">
-            <NotificationText
+            <NotificationBox
               title="YOUR NFT TICKET NUMBER: 39040293"
               timestamp="TIMESTAMP"
-            />
-            <NotificationText
+              />
+            <NotificationBox
               title="YOUR NFT TICKET NUMBER: 39040293"
               timestamp="TIMESTAMP"
-            />
-            <NotificationText
+              />
+            <NotificationBox
               title="YOUR NFT TICKET NUMBER: 39040293"
               timestamp="TIMESTAMP"
-            />
+              />
+              </div>
           </div>
         </div>
-      {/* </div> */}
     </section>
   );
 };
 
 export default Notification;
-
-interface INotificationText {
-  title: string;
-  timestamp: string;
-}
-const NotificationText: React.FC<INotificationText> = ({
-  title,
-  timestamp,
-}) => {
-  return (
-    <span className="text-black text-sm md:text-xl font-light leading-[2rem] tracking-[3.6px] md:tracking-[4.8px]">
-      {title}
-      <p className="text-[#787373] md:text-[0.9375rem] md:tracking-[3.6px]">
-        {timestamp}
-      </p>
-      <hr className="border-1 border-[#CAC7C7] mt-[0.625rem] w-[90%]" />
-    </span>
-  );
-};
