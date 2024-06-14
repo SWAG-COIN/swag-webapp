@@ -1,7 +1,19 @@
 import React from "react";
 import GiveawayCard from "./Giveaway";
+import { GoalLottery } from "@/lib/goalLottery";
+import { WeeklyLottery } from "@/lib/weeklyLottery";
+import { useAnchorWallet, useConnection } from "@solana/wallet-adapter-react";
+import Countdown from "react-countdown";
+import Link from "next/link";
 
-const Hero = () => {
+const Hero = async () => {
+ const wallet = useAnchorWallet();
+ const { connection } = useConnection();
+ const weeklyLottery = new WeeklyLottery(wallet!, connection);
+ const goalLottery = new GoalLottery(wallet!, connection);
+ const weeklyLotteryState = await weeklyLottery.getLotteryState();
+ const goalLotteryState = await goalLottery.getLotteryState();
+ 
   return (
     <section className="relative flex flex-col justify-center items-center my-[3.0625rem] gap-[2.625rem] overflow-hidden">
       <div className="w-full z-10">
@@ -96,12 +108,12 @@ const Hero = () => {
             <b className="text-xl leading-[2rem] font-semibold tracking-[4.8px]">
               TESLA CYBERTRUCK
             </b>
-            <div className="bg-black w-full text-white text-center font-bold py-4">
+            <div className="bg-black h-[8.5rem] flex flex-col justify-around w-full text-white text-center font-bold py-4">
               <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
                 Current round ends in
               </span>
               <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
-                06 : 23 : 56 : 12
+                <Countdown date={new Date(new Date(+weeklyLotteryState?.lastDrawTimestamp).getDay() + 7)} />
               </p>
               <span className="flex justify-center gap-10">
                 <p className="text-sm leading-[1.375rem] tracking-[3.36px]">
@@ -118,9 +130,9 @@ const Hero = () => {
                 </p>
               </span>
             </div>
-            <button className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
+            <Link href="https://www.orca.so/?tokenIn=So11111111111111111111111111111111111111112&tokenOut=orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE" target="_blank" className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
               BUY WITH DEX
-            </button>
+            </Link>
           </GiveawayCard>
           <GiveawayCard title="SWAG GIVEAWAY">
             <p className="text-base font-light tracking-[3.84px]">
@@ -129,17 +141,17 @@ const Hero = () => {
             <b className="text-xl leading-[2rem] font-semibold tracking-[4.8px]">
               TESLA CYBERTRUCK
             </b>
-            <div className="bg-black w-full text-white text-center font-bold py-4">
+            <div className="bg-black h-[8.5rem] flex flex-col justify-around w-full text-white text-center font-bold py-4">
               <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
                 Entries remaining until draw:
               </span>
               <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
-                100,456
+                {+goalLotteryState?.ticketCount}
               </p>
             </div>
-            <button className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
+            <Link href="https://www.orca.so/?tokenIn=So11111111111111111111111111111111111111112&tokenOut=orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE" target="_blank" className="border-2 px-8 border-black py-2 rounded-xl text-sm leading-[22.4px] tracking-[3.36px] font-semibold">
               BUY WITH DEX
-            </button>
+            </Link>
           </GiveawayCard>
         </div>
       </div>

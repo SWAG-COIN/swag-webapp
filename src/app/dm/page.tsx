@@ -3,7 +3,7 @@ import React from "react";
 import SocialBanner from "@/components/SocialBanner";
 import Notification from "@/components/Notification";
 
-const DMPage: React.FC = () => {
+const DMPage: React.FC = async () => {
 return (
     <main>
       <Notification />

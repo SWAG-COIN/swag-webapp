@@ -1,0 +1,509 @@
+{
+  "address": "7L41BMsZqgevNZhRZ3TnxTthgwoi5kmkguoGPuWpKupv",
+  "metadata": {
+    "name": "weekly_lottery",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_accounts",
+      "discriminator": [
+        71,
+        85,
+        159,
+        75,
+        14,
+        141,
+        78,
+        245
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "lottery_ticket",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  87,
+                  69,
+                  69,
+                  75,
+                  76,
+                  89,
+                  95,
+                  76,
+                  79,
+                  84,
+                  84,
+                  69,
+                  82,
+                  89,
+                  95,
+                  84,
+                  73,
+                  67,
+                  75,
+                  69,
+                  84
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "lottery_state.lottery_index",
+                "account": "WeeklyLotteryState"
+              },
+              {
+                "kind": "account",
+                "path": "lottery_state.ticket_count",
+                "account": "WeeklyLotteryState"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "user",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "close_account",
+      "discriminator": [
+        125,
+        255,
+        149,
+        14,
+        110,
+        34,
+        72,
+        24
+      ],
+      "accounts": [
+        {
+          "name": "lottery_ticket",
+          "writable": true
+        },
+        {
+          "name": "lottery_state"
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "distribute_rewards",
+      "discriminator": [
+        97,
+        6,
+        227,
+        255,
+        124,
+        165,
+        3,
+        148
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "lottery_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "fetch_lottery_winner",
+      "discriminator": [
+        19,
+        212,
+        85,
+        75,
+        90,
+        214,
+        94,
+        246
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "randomness_account_data"
+        }
+      ],
+      "args": [
+        {
+          "name": "randomness_account",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "initialize_lottery",
+      "discriminator": [
+        113,
+        199,
+        243,
+        247,
+        73,
+        217,
+        33,
+        11
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  87,
+                  69,
+                  69,
+                  75,
+                  76,
+                  89,
+                  95,
+                  76,
+                  79,
+                  84,
+                  84,
+                  69,
+                  82,
+                  89
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true,
+          "address": "5h2BhPhaG4c39gu8UxCXhBdQNUUXwkE3C2ZdZBPEV1AP"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "num_winners",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "set_winners",
+      "discriminator": [
+        96,
+        110,
+        12,
+        157,
+        13,
+        102,
+        230,
+        153
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "winners",
+          "type": {
+            "vec": "pubkey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "settle_lottery_winner",
+      "discriminator": [
+        212,
+        32,
+        9,
+        13,
+        78,
+        128,
+        172,
+        89
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "randomness_account_data"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update_admin",
+      "discriminator": [
+        161,
+        176,
+        40,
+        213,
+        60,
+        184,
+        179,
+        228
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_num_winners",
+      "discriminator": [
+        246,
+        59,
+        220,
+        230,
+        246,
+        236,
+        134,
+        122
+      ],
+      "accounts": [
+        {
+          "name": "lottery_state",
+          "writable": true
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "winner_count",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "LotteryTicket",
+      "discriminator": [
+        228,
+        213,
+        125,
+        39,
+        104,
+        149,
+        18,
+        39
+      ]
+    },
+    {
+      "name": "WeeklyLotteryState",
+      "discriminator": [
+        253,
+        107,
+        214,
+        165,
+        215,
+        87,
+        150,
+        205
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "WeeklyLotteryWinner",
+      "discriminator": [
+        119,
+        124,
+        20,
+        41,
+        238,
+        177,
+        158,
+        128
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "TooSoon",
+      "msg": "A draw can only happen once per week."
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "Only admin can add address"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidLottery",
+      "msg": "Invalid Lottery"
+    },
+    {
+      "code": 6003,
+      "name": "RandomnessAlreadyRevealed"
+    },
+    {
+      "code": 6004,
+      "name": "RandomnessNotResolved"
+    },
+    {
+      "code": 6005,
+      "name": "WeeklyLotteryOver",
+      "msg": "Lottery for this week is over. Get the winner, and start lottery for next week"
+    }
+  ],
+  "types": [
+    {
+      "name": "LotteryTicket",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "ticket_id",
+            "type": "u64"
+          },
+          {
+            "name": "lottery_id",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WeeklyLotteryState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "randomness_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "lottery_index",
+            "type": "u64"
+          },
+          {
+            "name": "winners_count",
+            "type": "u64"
+          },
+          {
+            "name": "winners_ticket",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "ticket_count",
+            "type": "u64"
+          },
+          {
+            "name": "last_draw_timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WeeklyLotteryWinner",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "lottery_index",
+            "type": "u64"
+          },
+          {
+            "name": "winner",
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

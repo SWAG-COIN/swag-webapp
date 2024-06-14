@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 
 interface INotificationBox {
-    title: string;
+    title: string | ReactNode;
     timestamp: string;
   }
   const NotificationBox: React.FC<INotificationBox> = ({
