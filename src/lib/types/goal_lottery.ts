@@ -5,7 +5,7 @@
  * IDL can be found at `target/idl/goal_lottery.json`.
  */
 export type GoalLotteryType = {
-  "address": "3tjz7PpGvANm4xNLtCmmo3kaTt1trXxTbQYNdWnB314P",
+  "address": "5h2BhPhaG4c39gu8UxCXhBdQNUUXwkE3C2ZdZBPEV1AP",
   "metadata": {
     "name": "goalLottery",
     "version": "0.1.0",
@@ -117,35 +117,6 @@ export type GoalLotteryType = {
       "args": []
     },
     {
-      "name": "distributeRewards",
-      "discriminator": [
-        97,
-        6,
-        227,
-        255,
-        124,
-        165,
-        3,
-        148
-      ],
-      "accounts": [
-        {
-          "name": "lotteryState",
-          "writable": true
-        },
-        {
-          "name": "user",
-          "signer": true
-        }
-      ],
-      "args": [
-        {
-          "name": "lotteryId",
-          "type": "u64"
-        }
-      ]
-    },
-    {
       "name": "fetchLotteryWinner",
       "discriminator": [
         19,
@@ -229,6 +200,10 @@ export type GoalLotteryType = {
       "args": [
         {
           "name": "numWinners",
+          "type": "u64"
+        },
+        {
+          "name": "goalAmount",
           "type": "u64"
         }
       ]
@@ -387,6 +362,11 @@ export type GoalLotteryType = {
       "code": 6004,
       "name": "invalidLottery",
       "msg": "Invalid Lottery"
+    },
+    {
+      "code": 6005,
+      "name": "GoalNotReached",
+      "msg": "Goal not reached"
     }
   ],
   "types": [
@@ -405,6 +385,10 @@ export type GoalLotteryType = {
           },
           {
             "name": "winnersCount",
+            "type": "u64"
+          },
+          {
+            "name": "goalAmount",
             "type": "u64"
           },
           {

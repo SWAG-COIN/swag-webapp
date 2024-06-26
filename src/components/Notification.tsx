@@ -19,8 +19,11 @@ const Notification = async () => {
     wallet ? wallet.publicKey.toString() : ""
   )) || []) as { date: string; n: number }[];
 
-  const hasWon = await getWinStatus(
-    wallet ? wallet.publicKey.toString() : "")
+  const hasWonWeekly = await getWinStatus(
+    wallet ? wallet.publicKey.toString() : "", 'week')
+
+  const hasWonGoal = await getWinStatus(
+    wallet ? wallet.publicKey.toString() : "", 'goal')
 
   return (
     <section className="md:mx-[5rem] flex flex-col gap-6 md:gap-12 mt-[3.25rem] mb-6 justify-center items-start">
@@ -49,9 +52,14 @@ const Notification = async () => {
           <div className=" text-left flex flex-col gap-9 h-[20rem] scrollbar overflow-y-scroll">
             {connected ? (
               <>
-              {hasWon && 
+              {hasWonGoal && 
               <NotificationBox
-              title='CONGRATULATIONS! YOU HAVE WON LAMBO!'
+              title='CONGRATULATIONS! YOU HAVE WON GOAL LOTTERY PRIZE!'
+              timestamp={new Date().toLocaleDateString()}
+            />}
+            {hasWonWeekly && 
+              <NotificationBox
+              title='CONGRATULATIONS! YOU HAVE WON WEEKLY LOTTERY PRIZE!'
               timestamp={new Date(+weeklyLotteryState?.lastDrawTimestamp).toLocaleDateString()}
             />}
             {goalLotteryState?.winnersCount && 

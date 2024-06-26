@@ -1,5 +1,5 @@
 {
-  "address": "3tjz7PpGvANm4xNLtCmmo3kaTt1trXxTbQYNdWnB314P",
+  "address": "5h2BhPhaG4c39gu8UxCXhBdQNUUXwkE3C2ZdZBPEV1AP",
   "metadata": {
     "name": "goal_lottery",
     "version": "0.1.0",
@@ -111,35 +111,6 @@
       "args": []
     },
     {
-      "name": "distribute_rewards",
-      "discriminator": [
-        97,
-        6,
-        227,
-        255,
-        124,
-        165,
-        3,
-        148
-      ],
-      "accounts": [
-        {
-          "name": "lottery_state",
-          "writable": true
-        },
-        {
-          "name": "user",
-          "signer": true
-        }
-      ],
-      "args": [
-        {
-          "name": "lottery_id",
-          "type": "u64"
-        }
-      ]
-    },
-    {
       "name": "fetch_lottery_winner",
       "discriminator": [
         19,
@@ -223,6 +194,10 @@
       "args": [
         {
           "name": "num_winners",
+          "type": "u64"
+        },
+        {
+          "name": "goal_amount",
           "type": "u64"
         }
       ]
@@ -381,6 +356,11 @@
       "code": 6004,
       "name": "InvalidLottery",
       "msg": "Invalid Lottery"
+    },
+    {
+      "code": 6005,
+      "name": "GoalNotReached",
+      "msg": "Goal not reached"
     }
   ],
   "types": [
@@ -399,6 +379,10 @@
           },
           {
             "name": "winners_count",
+            "type": "u64"
+          },
+          {
+            "name": "goal_amount",
             "type": "u64"
           },
           {

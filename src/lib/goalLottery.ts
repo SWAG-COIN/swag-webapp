@@ -91,7 +91,7 @@ export class GoalLottery {
 
       transaction.add(
         await this.program.methods
-          .initializeLottery(new BN(10))
+          .initializeLottery(new BN(10), new BN(1000))
           .accounts({
             lotteryState: this.initializePDA,
             signer: this.provider.publicKey,

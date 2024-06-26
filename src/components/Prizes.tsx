@@ -57,7 +57,7 @@ const Prizes = async () => {
       <GiveawayCard title="SWAG PRIZE">
         <div className="bg-black h-[8.5rem] flex flex-col justify-around w-full text-white text-center font-bold py-4">
           <span className="text-sm leading-[1.375rem] tracking-[3.36px] ">
-            Entries remaining until draw:
+          Total Entries:
           </span>
           <p className="text-[1.75rem] leading-[2.75rem] tracking-[6.72px]">
             {+goalLotteryState?.ticketCount}
